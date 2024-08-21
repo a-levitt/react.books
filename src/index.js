@@ -1,10 +1,12 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 
+import './index.css'
 
 const BookList = () => {
     return (
-        <section>
+        <section className='booklist'>
+            <Book />
             <Book />
             <Book />
             <Book />
@@ -14,7 +16,7 @@ const BookList = () => {
 
 const Book = () => {
     return (
-    <article>
+    <article className='book'>
         <Image />
         <Title />
         <Author />
@@ -22,11 +24,13 @@ const Book = () => {
     );
 };
 
-const Image = () => <h2>image placeholder</h2>;
-const Title = () => {
-    return <h2>Book Title</h2>;
+const Image = () => <img src='https://f.media-amazon.com/images/I/7156r9Yg5OL._SL1360_.jpg'
+                         alt='Android Programming for Beginners'/>;
+const Title = () => <h2>Android Programming for Beginners (Third edition)</h2>;
+const Author = () => {
+    return <h4>John Horton</h4>;
 };
-const Author = () => <h4>Autor</h4>;
+
 
 
 
