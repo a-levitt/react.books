@@ -11,7 +11,9 @@ const BookList = () => {
                 author={firstBook.author} 
                 image={firstBook.image} 
                 imageAlt={firstBook.imageAlt} 
-            />
+            >
+                <p> We highly recommend you this one!</p>
+            </Book>
             <Book   
                 title={secondBook.title} 
                 author={secondBook.author} 
@@ -28,12 +30,14 @@ const BookList = () => {
     );
 };
 
-const Book = ({title, author, image, imageAlt}) => {
+const Book = ({title, author, image, imageAlt, children}) => {
     return (
     <article className='book'>
         <img src={image} alt={imageAlt}/>
         <h2>{title}</h2>
         <h4>{author}</h4>
+        {children}
+        <button>Add to cart</button>
     </article>
     );
 };

@@ -22,7 +22,7 @@ body {
 @media screen and (min-width: 768px) {
 .booklist {
     grid-template-columns: repeat(3, 1fr);
-    align-items: start;
+    /* align-items: start; */
 }
 
 }
@@ -33,8 +33,9 @@ body {
     text-align: center;
 }
 .book img {
-    width: 100%;
-    object-fit: cover;
+    width: 340px;
+    height: 400px;
+    object-fit: fill;
 }
 .book h2 {
     margin-top: 1rem;
