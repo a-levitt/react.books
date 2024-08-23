@@ -7,9 +7,8 @@ const BookList = () => {
     return (
         <section className='booklist'>
             {books.map((book) => {
-                const {title, author, image, imageAlt} = book;
                 return (
-                    <Book image={image} title={title} author={author} imageAlt={imageAlt} />
+                    <Book {...book} key={book.id}/>
                 );
             })};
         </section>
@@ -27,25 +26,29 @@ const Book = ({title, author, image, imageAlt, children}) => {
     </article>
     );
 };
+
 const books = [
- {
-    title: "Android Programming for Beginners (Third edition)",
-    author: "John Horton",
-    image: "./images/Android_programming.jpg",
-    imageAlt: "Android Programming for Beginners"
-},
-{
-    title: "Learning React: Modern Patterns for Developing React Apps (2nd Edition)",
-    author: "Alex Banks, Eve Porcello",
-    image: "./images/Learning_react.jpg",
-    imageAlt: "Learning React: Modern Patterns for Developing React Apps"
-},
-{
-    title: "Head First Kotlin: A Brain-Friendly Guide (1st Edition)",
-    author: "Dawn Griffiths, David Griffiths",
-    image: "./images/HeadFirst_Kotlin.jpg",
-    imageAlt: "Head First Kotlin: A Brain-Friendly Guide"
-}
+     {
+        title: "Android Programming for Beginners (Third edition)",
+        author: "John Horton",
+        image: "./images/Android_programming.jpg",
+        imageAlt: "Android Programming for Beginners",
+        id: 1
+    },
+    {
+        title: "Learning React: Modern Patterns for Developing React Apps (2nd Edition)",
+        author: "Alex Banks, Eve Porcello",
+        image: "./images/Learning_react.jpg",
+        imageAlt: "Learning React: Modern Patterns for Developing React Apps",
+        id: 2
+    },
+    {
+        title: "Head First Kotlin: A Brain-Friendly Guide (1st Edition)",
+        author: "Dawn Griffiths, David Griffiths",
+        image: "./images/HeadFirst_Kotlin.jpg",
+        imageAlt: "Head First Kotlin: A Brain-Friendly Guide",
+        id: 3
+    }
 ];
 
 
