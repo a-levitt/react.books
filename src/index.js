@@ -6,26 +6,12 @@ import './index.css'
 const BookList = () => {
     return (
         <section className='booklist'>
-            <Book   
-                title={firstBook.title} 
-                author={firstBook.author} 
-                image={firstBook.image} 
-                imageAlt={firstBook.imageAlt} 
-            >
-                <p> We highly recommend you this one!</p>
-            </Book>
-            <Book   
-                title={secondBook.title} 
-                author={secondBook.author} 
-                image={secondBook.image} 
-                imageAlt={secondBook.imageAlt} 
-            />
-            <Book   
-                title={thirdBook.title} 
-                author={thirdBook.author} 
-                image={thirdBook.image} 
-                imageAlt={thirdBook.imageAlt} 
-            />
+            {books.map((book) => {
+                const {title, author, image, imageAlt} = book;
+                return (
+                    <Book image={image} title={title} author={author} imageAlt={imageAlt} />
+                );
+            })};
         </section>
     );
 };
@@ -41,28 +27,26 @@ const Book = ({title, author, image, imageAlt, children}) => {
     </article>
     );
 };
-
-const firstBook = {
+const books = [
+ {
     title: "Android Programming for Beginners (Third edition)",
     author: "John Horton",
     image: "./images/Android_programming.jpg",
     imageAlt: "Android Programming for Beginners"
-};
-
-const secondBook = {
+},
+{
     title: "Learning React: Modern Patterns for Developing React Apps (2nd Edition)",
     author: "Alex Banks, Eve Porcello",
     image: "./images/Learning_react.jpg",
     imageAlt: "Learning React: Modern Patterns for Developing React Apps"
-};
-
-const thirdBook = {
+},
+{
     title: "Head First Kotlin: A Brain-Friendly Guide (1st Edition)",
     author: "Dawn Griffiths, David Griffiths",
     image: "./images/HeadFirst_Kotlin.jpg",
     imageAlt: "Head First Kotlin: A Brain-Friendly Guide"
-};
-
+}
+];
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
