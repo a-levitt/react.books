@@ -6,7 +6,6 @@ import './index.css'
 const BookList = () => {
     return (
         <section className='booklist'>
-            <EventExamples />
             {books.map((book) => {
                 return  <Book {...book} key={book.id}/>;
             })};
@@ -14,43 +13,16 @@ const BookList = () => {
     );
 };
 
-const EventExamples = () => {
-    const handleFormInput = (event) => {
-        //console.log(event);
-        console.log(event.target);
-        console.log(event.target.name);
-        console.log(event.target.value);
-    };
-    const handleFormSubmition = (event) => {
-        event.preventDefault();
-        console.log('form submitted');
-    };
-    const handleButtonClick = () => {
-        alert('handleButtonClick');
-    };
-    return (
-      <section>
-          <form onSubmit={handleFormSubmition}>
-              <h2>Typical form</h2>
-              <input
-                  type='text'
-                  name='example'
-                  onChange={handleFormInput}
-                  style={{ margin: '1rem 0'}}
-              />
-          </form>
-          <button onClick={handleButtonClick}>Submit</button>
-      </section>
-    );
-}
-
-const Book = ({title, author, image, imageAlt, children}) => {
+const Book = ({title, author, image, imageAlt}) => {
+    const displayTitle = () => {
+        console.log(title);
+    }
     return (
     <article className='book'>
         <img src={image} alt={imageAlt}/>
         <h2>{title}</h2>
         <h4>{author}</h4>
-        {children}
+        <button onClick={displayTitle}>display title</button>
         <button>Add to cart</button>
     </article>
     );
