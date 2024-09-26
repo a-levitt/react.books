@@ -20,15 +20,15 @@ const BookList = () => {
 const Book = (props) => {
     const {title, author, image, imageAlt, getBook, id} = props;
     // console.log(props);
-    const getSingleBook = () => {
+/*    const getSingleBook = () => {
         getBook(id);
-    }
+    }*/
     return (
     <article className='book'>
         <img src={image} alt={imageAlt}/>
         <h2>{title}</h2>
         <h4>{author}</h4>
-        <button onClick={getSingleBook}>Add to cart</button>
+        <button onClick={() => getBook(id)}>Add to cart</button>
     </article>
     );
 };
