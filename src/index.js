@@ -4,26 +4,31 @@ import ReactDOM from 'react-dom/client';
 import './index.css'
 
 const BookList = () => {
-    const addMessage = 'Added to cart';
-    const addToCart = () => {
-        console.log(addMessage);
+    const getBook = (id) => {
+        const book = books.find(book => book.id === id);
+        console.log(book);
     }
     return (
         <section className='booklist'>
             {books.map((book) => {
-                return  <Book {...book} key={book.id} addToCart={addToCart} />;
+                return  <Book {...book} key={book.id} getBook={getBook}/>;
             })};
         </section>
     );
 };
 
-const Book = ({title, author, image, imageAlt, addToCart}) => {
+const Book = (props) => {
+    const {title, author, image, imageAlt, getBook, id} = props;
+    // console.log(props);
+    const getSingleBook = () => {
+        getBook(id);
+    }
     return (
     <article className='book'>
         <img src={image} alt={imageAlt}/>
         <h2>{title}</h2>
         <h4>{author}</h4>
-        <button  onClick={addToCart}>Add to cart</button>
+        <button onClick={getSingleBook}>Add to cart</button>
     </article>
     );
 };
