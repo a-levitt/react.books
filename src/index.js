@@ -10,15 +10,19 @@ const BookList = () => {
 
 
     return (
-        <section className='booklist'>
-            {books.map((book, index) => {
-                return  <Book {...book} key={book.id} number={index} />;
-            })}
-        </section>
+        <>
+            <h1>Best IT books</h1>
+            <section className='booklist'>
+                {books.map((book, index) => {
+                    return <Book {...book} key={book.id} number={index}/>;
+                })}
+            </section>
+        </>
+
     );
 };
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<BookList />);
+root.render(<BookList/>);
 
  
